@@ -1992,6 +1992,7 @@ function rcube_elastic_ui()
     function searchbar_init(bar)
     {
         var unread_button = $(),
+            flagged_button = $(),
             options_button = $('a.button.options', bar),
             input = $('input:not([type=hidden])', bar),
             placeholder = input.attr('placeholder'),
@@ -2020,11 +2021,21 @@ function rcube_elastic_ui()
             },
             update_func = function() {
                 $(bar)[is_search_pending() ? 'addClass' : 'removeClass']('active');
+                flagged_button[rcmail.gui_objects.search_filter && $(rcmail.gui_objects.search_filter).val() == 'FLAGGED' ? 'addClass' : 'removeClass']('selected');
                 unread_button[rcmail.gui_objects.search_filter && $(rcmail.gui_objects.search_filter).val() == 'UNSEEN' ? 'addClass' : 'removeClass']('selected');
             };
 
-        // Add Unread filter button
         if (input.is('#mailsearchform')) {
+        // Add Flagged filter button
+            flagged_button = $('<a>')
+                .attr({'class': 'button flagged', href: '#', role: 'button', title: rcmail.gettext('flagged')})
+                .on('click', function(e) {
+                    $(rcmail.gui_objects.search_filter).val($(e.target).is('.selected') ? 'ALL' : 'FLAGGED');
+                    rcmail.command('search');
+                })
+                .insertBefore(options_button);
+
+        // Add Unread filter button
             unread_button = $('<a>')
                 .attr({'class': 'button unread', href: '#', role: 'button', title: rcmail.gettext('showunread')})
                 .on('click', function(e) {

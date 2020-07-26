@@ -189,7 +189,7 @@ html.iframe body {
     display: flex;
     flex-direction: column;
     flex: 3;
-    /*    max-width: 30%; */
+/*    max-width: 30%; */
     min-width: 300px;
     border-right: 1px solid #d4dbde;
     background-color: #fff
@@ -2662,6 +2662,11 @@ a.toolbar-button {
     font-weight: 900
 }
 
+.searchbar a.flagged:before {
+    content: "\f024";
+    font-weight: 900
+}
+
 .searchbar a.reset, .searchbar a.search {
     display: none
 }
@@ -3057,7 +3062,7 @@ a.toolbar-button {
 }
 
 .listing tbody td, .listing li {
-    /*    border-bottom: 1px solid #f1f3f4; */
+/*    border-bottom: 1px solid #f1f3f4; */
     border-bottom: 1px solid #ccc;
     cursor: default;
     font-weight: normal;
@@ -3646,7 +3651,7 @@ html.touch .folderlist li.mailbox .unreadcount {
 .messagelist td.subject span.subject {
     overflow: hidden;
     text-overflow: ellipsis;
-    /*    width: 100% */
+/*    width: 100% */
     width: 65%
 }
 
@@ -3660,8 +3665,8 @@ html.touch .folderlist li.mailbox .unreadcount {
 }
 
 .messagelist td.flags > span {
-    /*  height: 1.7em;
-        line-height: 1.7em; */
+/*  height: 1.7em;
+    line-height: 1.7em; */
     display: block
 }
 
@@ -3672,7 +3677,6 @@ html.touch .folderlist li.mailbox .unreadcount {
 .messagelist tr.flagged td, .messagelist tr.flagged td.subject span.subject a, .messagelist tr.flagged td.subject span.date, .messagelist tr.flagged td.subject span.fromto {
     color: #ff5552;
 }
-
 .messagelist tr.message td {
     line-height: unset;
 }
